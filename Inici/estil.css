@@ -1,0 +1,41 @@
+
+@media (min-width: 768px) {
+    .navbar-nav {
+        float: right;
+        margin: 0;
+    }
+}
+
+.m-t-21{
+    margin-top: -21px;
+}
+
+
+.navbar-inverse {
+    background-color: #ad1f00 !important;
+    border-color: #ffffff !important;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #ffffff;
+}
+
+.f-r{
+    float: right;
+}
+  
+.no-padding{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.img{
+  width:888;
+  height:1903;
+
+}
+
+
+
