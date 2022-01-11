@@ -53,34 +53,26 @@
 
 
     <div class="container m-t-150">
-        <div>
+        <div class="item">
             <div class="col-md-6">
-                <img class="igs-70" src="images/chu1.jpg" alt="imgslide1">
+                <img class="igs-70 item-image" src="images/chu1.jpg" alt="imgslide1">
             </div>
             <div class="col-md-6" style="color: white;">
-                <h5>TOMAHAWK ORIGINAL 20,00€</h5>
+                <h5 class="item-title">TOMAHAWK ORIGINAL</h5>
+                <h5 class="item-price">20.00€</h5>
+                <br>
                 <form class="m-t-55">
-                    <div class="form-group m-t-25">
-                        <label>Elige cantidad</label>
-                        <select style="color: black;">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <button type="button" class="btn btn-warning ">AÑADIR A LA CESTA</button>
-
+                    <h5>Cantidad:</h5>
+                    <input id="number" class="item-quantity" type="number" value="1" style="color: black;">
+                    <button type="button" class="btn btn-warning compra">AÑADIR A LA CESTA</button>
                 </form>
             </div>
-
-
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="AddToCesta.js"></script>
 </body>
 
 </html>

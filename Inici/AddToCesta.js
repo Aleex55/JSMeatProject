@@ -15,7 +15,7 @@ function addedToCart(event) {
     const item = button.closest('.item');
     const itemTitle = item.querySelector('.item-title').textContent;
     const itemPrice = item.querySelector('.item-price').textContent;
-    const itemQuantity = item.querySelector('.item-quant').textContent;
+    const itemQuantity = item.querySelector('.item-quantity').value;
     const itemImage = item.querySelector('.item-image').src;
 
     saveItem(itemTitle, itemPrice, itemQuantity, itemImage);
