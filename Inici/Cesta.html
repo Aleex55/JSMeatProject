@@ -28,22 +28,41 @@
             </div>
         </div>
     </nav>
+    
+    <div class="cart">
+        <table>
+            <div class="cart-header">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </div>
+            <div class="allcart-items">
+                <div class="cart-item">
+                    <tr>
+                        <td><img class="item-minimage" src="images/chuleton.jpg"></td>
+                        <td><p class="item-name">TOMAHAWK CLASSICO</p></td>
+                        <td>
+                            <input class="item-quantity" type="number" value="1"></input>
+                        </td>
+                        <td><p class="item-price">20.00€</p></td>
+                        <td><button class="eliminate" type="button">X</button></td>
+                    </tr>
+                </div>
+            </div>
+            <hr>
+        </table>
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Total</th>
-                <th></th>
-            </tr>
-        </thead>
-    </table>
-
-    <div>
+    <div class="total">
         <h2>Total</h2>
-        <button type="button">Comprar</button>
+        <h2 class="total-price">0€</h2>
+        <button class="buy-all" type="button">Comprar</button>
     </div>
 </body>
 </html>
