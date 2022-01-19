@@ -2,6 +2,22 @@
 <html>
     <head>
         <title>Cesta</title>
+        <style>
+            .table {
+            display: table;
+            }
+            .table-row {
+            display: table-row;
+            border-bottom: 1px solid black;
+            }
+            .table-cell {
+            display: table-cell;
+            padding: 10px;
+            }
+            .table-row:nth-child(even) {
+            background: lightcoral;
+            }
+        </style>
     </head>
     <body>
         
@@ -15,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img class="m-t-21" src="images/chuleton.jpg" alt="no" width="150"></a>
+                <a class="navbar-brand" href="index.html"><img class="m-t-21" src="images/chuleton.jpg" alt="no" widh2="150"></a>
             </div>
             <div class="collapse navbar-collapse ">
                 <ul class="nav navbar-nav ">
@@ -29,33 +45,28 @@
         </div>
     </nav>
     
-    <div class="cart">
-        <table class="table-cart">
-            <div class="cart-header">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Total</th>
-                        <th></th>
-                    </tr>
-                </thead>
+    <div class="table cart">
+        <div class=" table-row cart-header">
+            <div class="table-cell">
+                <h2>Miniatura</h2>
             </div>
-            <div class="allcart-items">
-                <div class="cart-item">
-                    <tr>
-                        <td><img class="item-minimage" src="images/tom1.jpg"></td>
-                        <td><p class="item-name">TOMAHAWK CLASSICO</p></td>
-                        <td>
-                            <input class="item-quantity" type="number" value="1"></input>
-                        </td>
-                        <td><p class="item-price">20.00€</p></td>
-                        <td><button class="eliminate-button" type="button">X</button></td>
-                    </tr>
-                </div>
+            <div class="table-cell">
+                <h2>Producto</h2>
             </div>
-        </table>
+            <div class="table-cell">
+                <h2>Precio</h2>
+            </div>
+            <div class="table-cell">
+                <h2>Cantidad</h2>
+            </div>
+            <div class="table-cell">
+                <h2>Total</h2>
+            </div>
+            
+        </div>  
+        <div class="allcart-items">
+            <!--AQUI VAN ELS ITEMS DE LA CESTA-->
+        </div>
     </div>
 
     <div class="total">
