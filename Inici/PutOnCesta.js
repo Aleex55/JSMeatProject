@@ -24,8 +24,6 @@ function addItemsToCart(itemTitles, itemPrices, itemImages){
         <div class="table-row cart-item">
                     <div class = "table-cell">
                         <img class="item-minimage" src="${itemImages[i]}">
-                    </div>
-                    <div class = "table-cell">
                         <p class="item-name">${itemTitles[i]}</p>
                     </div>
                     <div class = "table-cell">
@@ -42,10 +40,12 @@ function addItemsToCart(itemTitles, itemPrices, itemImages){
         allCartItemsContainer.append(cartRow);
         cartRow.innerHTML = rowContent;
 
-        cartRow.querySelector('.eliminate-button').addEventListener('click', removeItem)
+        cartRow.querySelector('.eliminate-button').addEventListener('click', removeItem);
 
         updatePrice();
     }
+
+    document.querySelector('.delete-all').addEventListener('click', deleteAll);
 
     function updatePrice(){
         let total = 0;
@@ -69,17 +69,16 @@ function addItemsToCart(itemTitles, itemPrices, itemImages){
 
     function removeItem (event){
         const buttonClicked = event.target;
-
-        let itemToRemove = buttonClicked.closest('.item-name').value;
-
-        let index = itemTitles.indexOf(itemToRemove);
-
-        
-
         buttonClicked.closest('.cart-item').remove();
         updatePrice();
     }
 
+    
+    function deleteAll(){
+        let everyItem = document.querySelectorAll('.cart-item');
+        everyItem.remove();
+        localStorage.clear();
+    }
     
 
 };
