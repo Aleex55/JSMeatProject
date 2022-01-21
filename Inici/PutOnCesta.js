@@ -9,10 +9,11 @@ itemTitles = JSON.parse(localStorage.getItem('arrayNomProducts'));
 itemPrices = JSON.parse(localStorage.getItem('arrayPriceProducts'));
 itemImages = JSON.parse(localStorage.getItem('arrayImgProducts'));
 
-
 if (localStorage.getItem("arrayNomProducts") !== null) {
-addItemsToCart(itemTitles, itemPrices, itemImages);
+    addItemsToCart(itemTitles, itemPrices, itemImages);
 }
+
+
 
 function addItemsToCart(itemTitles, itemPrices, itemImages){
     console.log(itemTitles, itemPrices, itemImages);
@@ -40,7 +41,43 @@ function addItemsToCart(itemTitles, itemPrices, itemImages){
         
         allCartItemsContainer.append(cartRow);
         cartRow.innerHTML = rowContent;
+
+        cartRow.querySelector('.eliminate-button').addEventListener('click', removeItem)
+
+        updatePrice();
+    }
+
+    function updatePrice(){
+        let total = 0;
+        const shoppingCartTotal = document.querySelector('.total-price');
+
+        const shoppingCartItems = document.querySelectorAll('.cart-item');
+
+        shoppingCartItems.forEach((shoppingCartItem) =>{
+            const itemPriceElement = shoppingCartItem.querySelector('.item-price');
+
+            const itemPrice =  Number(itemPriceElement.textContent.replace('€', ''));
+
+            const itemQuantityElement = shoppingCartItem.querySelector('.item-quantity');
+
+            const itemQuantity = Number(itemQuantityElement.value);
+
+            total = total + (itemPrice * itemQuantity);
+        });
+        shoppingCartTotal.innerHTML = `${total.toFixed(2)}€`;
+    }
+
+    function removeItem (event){
+        const buttonClicked = event.target;
+
+        let itemToRemove = buttonClicked.closest('.item-name').value;
+
+        let index = itemTitles.indexOf(itemToRemove);
+
         
+
+        buttonClicked.closest('.cart-item').remove();
+        updatePrice();
     }
 
     

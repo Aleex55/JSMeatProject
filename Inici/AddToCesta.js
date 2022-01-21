@@ -1,8 +1,12 @@
-let itemToAdd = document.querySelectorAll('.compra'); //classe boton compra
+let itemToAdd = document.querySelectorAll('.btn'); //classe boton compra
 
 let nomProds = [];
 let priceProds = []; 
 let imgProds = [];
+
+itemToAdd.forEach(addToCartButton => {
+    addToCartButton.addEventListener('click', addedToCart);
+})
 
 
 if (localStorage.getItem("arrayNomProducts") !== null) {
@@ -10,12 +14,6 @@ if (localStorage.getItem("arrayNomProducts") !== null) {
     priceProds = JSON.parse(localStorage.getItem('arrayPriceProducts'));
     imgProds = JSON.parse(localStorage.getItem('arrayImgProducts'));
 }
-
-
-
-itemToAdd.forEach(addToCartButton => {
-    addToCartButton.addEventListener('click', addedToCart);
-})
 
 function addedToCart() { 
 
