@@ -24,6 +24,8 @@ function addItemsToCart(itemTitles, itemPrices, itemImages){
         <div class="table-row cart-item">
                     <div class = "table-cell">
                         <img class="item-minimage" src="${itemImages[i]}">
+                    </div>
+                    <div class = "table-cell">
                         <p class="item-name">${itemTitles[i]}</p>
                     </div>
                     <div class = "table-cell">
@@ -69,7 +71,7 @@ function addItemsToCart(itemTitles, itemPrices, itemImages){
 
     function removeItem (event){
         const buttonClicked = event.target;
-        buttonClicked.closest('.cart-item').remove();
+     buttonClicked.closest('.cart-item').remove();
         updatePrice();
     }
 
