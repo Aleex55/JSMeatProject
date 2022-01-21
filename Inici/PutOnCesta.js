@@ -70,9 +70,9 @@ function addItemsToCart(itemTitles, itemPrices, itemImages){
     function removeItem (event){
         const buttonClicked = event.target;
 
-        let itemToRemove = buttonClicked.closest('.item-name').value;
+        // let itemToRemove = buttonClicked.closest('.item-name').value;
 
-        let index = itemTitles.indexOf(itemToRemove);
+        // let index = itemTitles.indexOf(itemToRemove);
 
         
 

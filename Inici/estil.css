@@ -66,3 +66,8 @@
     width:100%;
     position:absolute;
     }
+.item-minimage{
+    width: 30%;
+    border-radius: 2px;
+    box-shadow: 4px 10px 20px #000;
+}
