@@ -84,6 +84,15 @@ function removeItem (event){
     const itemTitle = item.querySelector('.item-name').textContent;
     var index = itemTitles.indexOf(itemTitle);
     console.log(itemTitle, index);
+
+    itemTitles.splice(index, 1);
+    itemImages.splice(index, 1);
+    itemPrices.splice(index, 1);
+    
+    localStorage.setItem('arrayNomProducts', JSON.stringify(itemTitles));
+    localStorage.setItem('arrayPriceProducts', JSON.stringify(itemPrices));
+    localStorage.setItem('arrayImgProducts', JSON.stringify(itemImages));
+
     buttonClicked.closest('.cart-item').remove();
     updatePrice();
 
