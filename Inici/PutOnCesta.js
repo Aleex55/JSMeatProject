@@ -5,6 +5,14 @@ let itemImages = [];
 
 const allCartItemsContainer = document.querySelector('.allcart-items');
 
+const comprarButton = document.querySelector('.buy-all');
+
+comprarButton.addEventListener('click', comprarButtonClicked);
+
+const deleteAllButton = document.querySelector('.delete-all');
+
+deleteAllButton.addEventListener('click', deleteAllButtonClicked);
+
 itemTitles = JSON.parse(localStorage.getItem('arrayNomProducts'));
 itemPrices = JSON.parse(localStorage.getItem('arrayPriceProducts'));
 itemImages = JSON.parse(localStorage.getItem('arrayImgProducts'));
@@ -44,43 +52,55 @@ function addItemsToCart(itemTitles, itemPrices, itemImages){
 
         cartRow.querySelector('.eliminate-button').addEventListener('click', removeItem);
 
+        cartRow.querySelector('.item-quantity').addEventListener('change', quantityChanged);
+
         updatePrice();
     }
-
-    document.querySelector('.delete-all').addEventListener('click', deleteAll);
-
-    function updatePrice(){
-        let total = 0;
-        const shoppingCartTotal = document.querySelector('.total-price');
-
-        const shoppingCartItems = document.querySelectorAll('.cart-item');
-
-        shoppingCartItems.forEach((shoppingCartItem) =>{
-            const itemPriceElement = shoppingCartItem.querySelector('.item-price');
-
-            const itemPrice =  Number(itemPriceElement.textContent.replace('€', ''));
-
-            const itemQuantityElement = shoppingCartItem.querySelector('.item-quantity');
-
-            const itemQuantity = Number(itemQuantityElement.value);
-
-            total = total + (itemPrice * itemQuantity);
-        });
-        shoppingCartTotal.innerHTML = `${total.toFixed(2)}€`;
-    }
-
-    function removeItem (event){
-        const buttonClicked = event.target;
-     buttonClicked.closest('.cart-item').remove();
-        updatePrice();
-    }
-
-    
-    function deleteAll(){
-        let everyItem = document.querySelectorAll('.cart-item');
-        everyItem.remove();
-        localStorage.clear();
-    }
-    
-
 };
+
+function updatePrice(){
+    let total = 0;
+    const shoppingCartTotal = document.querySelector('.total-price');
+
+    const shoppingCartItems = document.querySelectorAll('.cart-item');
+
+    shoppingCartItems.forEach((shoppingCartItem) =>{
+        const itemPriceElement = shoppingCartItem.querySelector('.item-price');
+
+        const itemPrice =  Number(itemPriceElement.textContent.replace('€', ''));
+
+        const itemQuantityElement = shoppingCartItem.querySelector('.item-quantity');
+
+        const itemQuantity = Number(itemQuantityElement.value);
+
+        total = total + (itemPrice * itemQuantity);
+    });
+    shoppingCartTotal.innerHTML = `${total.toFixed(2)}€`;
+}
+
+function removeItem (event){
+    const buttonClicked = event.target;
+    buttonClicked.closest('.cart-item').remove();
+    updatePrice();
+}
+
+function quantityChanged(event) {
+    const input = event.target;
+
+    if (input.value <= 0){
+        input.value = 1;
+    }
+
+    updatePrice();
+}
+
+function comprarButtonClicked(){
+    //poner aqui alerta de compra realizada
+    allCartItemsContainer.innerHTML = '';
+    updatePrice();
+}
+function deleteAllButtonClicked(){
+    //poner aqui alerta items eliminados
+    allCartItemsContainer.innerHTML = '';
+    updatePrice();
+}
