@@ -80,8 +80,13 @@ function updatePrice(){
 
 function removeItem (event){
     const buttonClicked = event.target;
+    const item = buttonClicked.closest('.cart-item');
+    const itemTitle = item.querySelector('.item-name').textContent;
+    var index = itemTitles.indexOf(itemTitle);
+    console.log(itemTitle, index);
     buttonClicked.closest('.cart-item').remove();
     updatePrice();
+
 }
 
 function quantityChanged(event) {
@@ -92,7 +97,7 @@ function quantityChanged(event) {
     }
 
     updatePrice();
-}
+} 
 
 function comprarButtonClicked(){
     //poner aqui alerta de compra realizada
