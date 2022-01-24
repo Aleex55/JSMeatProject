@@ -109,9 +109,11 @@ function quantityChanged(event) {
 } 
 
 function comprarButtonClicked(){
-    var alertPopup = document.getElementById("snackbar");
-    alertPopup.className = "show";
-    setTimeout(function(){ alertPopup.className = alertPopup.className.replace("show", ""); }, 3000);
+    if (localStorage.getItem("arrayNomProducts") !== null) {
+        var alertPopup = document.getElementById("snackbar");
+        alertPopup.className = "show";
+        setTimeout(function(){ alertPopup.className = alertPopup.className.replace("show", ""); }, 3000);
+    }
 
     allCartItemsContainer.innerHTML = '';
     updatePrice();
