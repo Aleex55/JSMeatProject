@@ -35,4 +35,9 @@ function addedToCart() {
     localStorage.setItem('arrayPriceProducts', JSON.stringify(priceProds));
     localStorage.setItem('arrayImgProducts', JSON.stringify(imgProds));
     console.log("Item afegit al carro");
+    
+    //snackbar popup
+    var alertPopup = document.getElementById("snackbar");
+    alertPopup.className = "show";
+    setTimeout(function(){ alertPopup.className = alertPopup.className.replace("show", ""); }, 3000);
 }
