@@ -13,6 +13,6 @@ $(document).ready(function(){
 
     if(txt_user != null && txt_user != 'undefined'){
         //llamamos al documento sesion.html
-        window.location = 'sesioniniciada.html';
+        window.location = 'Producte1.html';
     }
 });

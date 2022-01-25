@@ -113,6 +113,9 @@ function comprarButtonClicked(){
         var alertPopup = document.getElementById("snackbar");
         alertPopup.className = "show";
         setTimeout(function(){ alertPopup.className = alertPopup.className.replace("show", ""); }, 3000);
+        localStorage.removeItem('arrayNomProducts');
+        localStorage.removeItem('arrayPriceProducts');
+        localStorage.removeItem('arrayImgProducts');
     }
 
     allCartItemsContainer.innerHTML = '';
