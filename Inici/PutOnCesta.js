@@ -21,8 +21,6 @@ if (localStorage.getItem("arrayNomProducts") !== null) {
     addItemsToCart(itemTitles, itemPrices, itemImages);
 }
 
-
-
 function addItemsToCart(itemTitles, itemPrices, itemImages){
     console.log(itemTitles, itemPrices, itemImages);
 
@@ -122,7 +120,14 @@ function comprarButtonClicked(){
     updatePrice();
 }
 function deleteAllButtonClicked(){
-    //poner aqui alerta items eliminados
+    if (localStorage.getItem("arrayNomProducts") !== null) {
+        localStorage.removeItem('arrayNomProducts');
+        localStorage.removeItem('arrayPriceProducts');
+        localStorage.removeItem('arrayImgProducts');
+    }
     allCartItemsContainer.innerHTML = '';
     updatePrice();
 }
+
+
+
