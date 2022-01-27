@@ -13,11 +13,11 @@ const deleteAllButton = document.querySelector('.delete-all');
 
 deleteAllButton.addEventListener('click', deleteAllButtonClicked);
 
-itemTitles = JSON.parse(localStorage.getItem('arrayNomProducts'));
-itemPrices = JSON.parse(localStorage.getItem('arrayPriceProducts'));
-itemImages = JSON.parse(localStorage.getItem('arrayImgProducts'));
+itemTitles = JSON.parse(sessionStorage.getItem('arrayNomProducts'));
+itemPrices = JSON.parse(sessionStorage.getItem('arrayPriceProducts'));
+itemImages = JSON.parse(sessionStorage.getItem('arrayImgProducts'));
 
-if (localStorage.getItem("arrayNomProducts") !== null) {
+if (sessionStorage.getItem("arrayNomProducts") !== null) {
     addItemsToCart(itemTitles, itemPrices, itemImages);
 }
 
@@ -87,9 +87,9 @@ function removeItem (event){
     itemImages.splice(index, 1);
     itemPrices.splice(index, 1);
     
-    localStorage.setItem('arrayNomProducts', JSON.stringify(itemTitles));
-    localStorage.setItem('arrayPriceProducts', JSON.stringify(itemPrices));
-    localStorage.setItem('arrayImgProducts', JSON.stringify(itemImages));
+    sessionStorage.setItem('arrayNomProducts', JSON.stringify(itemTitles));
+    sessionStorage.setItem('arrayPriceProducts', JSON.stringify(itemPrices));
+    sessionStorage.setItem('arrayImgProducts', JSON.stringify(itemImages));
 
     buttonClicked.closest('.cart-item').remove();
     updatePrice();
@@ -107,23 +107,23 @@ function quantityChanged(event) {
 } 
 
 function comprarButtonClicked(){
-    if (localStorage.getItem("arrayNomProducts") !== null) {
+    if (sessionStorage.getItem("arrayNomProducts") !== null) {
         var alertPopup = document.getElementById("snackbar");
         alertPopup.className = "show";
         setTimeout(function(){ alertPopup.className = alertPopup.className.replace("show", ""); }, 3000);
-        localStorage.removeItem('arrayNomProducts');
-        localStorage.removeItem('arrayPriceProducts');
-        localStorage.removeItem('arrayImgProducts');
+        sessionStorage.removeItem('arrayNomProducts');
+        sessionStorage.removeItem('arrayPriceProducts');
+        sessionStorage.removeItem('arrayImgProducts');
     }
 
     allCartItemsContainer.innerHTML = '';
     updatePrice();
 }
 function deleteAllButtonClicked(){
-    if (localStorage.getItem("arrayNomProducts") !== null) {
-        localStorage.removeItem('arrayNomProducts');
-        localStorage.removeItem('arrayPriceProducts');
-        localStorage.removeItem('arrayImgProducts');
+    if (sessionStorage.getItem("arrayNomProducts") !== null) {
+        sessionStorage.removeItem('arrayNomProducts');
+        sessionStorage.removeItem('arrayPriceProducts');
+        sessionStorage.removeItem('arrayImgProducts');
     }
     allCartItemsContainer.innerHTML = '';
     updatePrice();

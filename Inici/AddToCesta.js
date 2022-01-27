@@ -9,10 +9,10 @@ itemToAdd.forEach(addToCartButton => {
 })
 
 
-if (localStorage.getItem("arrayNomProducts") !== null) {
-    nomProds = JSON.parse(localStorage.getItem('arrayNomProducts'));
-    priceProds = JSON.parse(localStorage.getItem('arrayPriceProducts'));
-    imgProds = JSON.parse(localStorage.getItem('arrayImgProducts'));
+if (sessionStorage.getItem("arrayNomProducts") !== null) {
+    nomProds = JSON.parse(sessionStorage.getItem('arrayNomProducts'));
+    priceProds = JSON.parse(sessionStorage.getItem('arrayPriceProducts'));
+    imgProds = JSON.parse(sessionStorage.getItem('arrayImgProducts'));
 }
 
 function addedToCart() { 
@@ -31,9 +31,9 @@ function addedToCart() {
     priceProds.push(precio);
     imgProds.push(imagen);
     
-    localStorage.setItem('arrayNomProducts', JSON.stringify(nomProds));
-    localStorage.setItem('arrayPriceProducts', JSON.stringify(priceProds));
-    localStorage.setItem('arrayImgProducts', JSON.stringify(imgProds));
+    sessionStorage.setItem('arrayNomProducts', JSON.stringify(nomProds));
+    sessionStorage.setItem('arrayPriceProducts', JSON.stringify(priceProds));
+    sessionStorage.setItem('arrayImgProducts', JSON.stringify(imgProds));
     console.log("Item afegit al carro");
     
     //snackbar popup
