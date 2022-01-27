@@ -60,9 +60,13 @@
 		<div class="left-box">
 			<h1 style="font-size: 15px;">LOGIN/REGISTER</h1>
 			<form  action="" method="POST" id="box-form">
-				<input type="text" name="user" id="txt-user" class="input-box" placeholder="Usuario">
+				<input type="text" name="user" id="txt-user" class="input-box" placeholder="Usuario" required>
 
-				<input type="password" name="password" id="txt-password" class="input-box" placeholder="Password">
+                <input type="email" name="email" id="txt-email" class="input-box" placeholder="Correo electronico" required>
+
+                <input id="txt-ccard" class="input-box" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="Tarjeta: xxxx xxxx xxxx xxxx" required>
+
+				<input type="password" name="password" id="txt-password" class="input-box" placeholder="Password" required>
 				
 				<input type="submit" name="entrar" value="Entrar">
 
