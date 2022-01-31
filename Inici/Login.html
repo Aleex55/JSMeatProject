@@ -19,13 +19,80 @@
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/localstorage.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/localstorage.js"></script>
 
     <style>
         body {
             padding-top: 53px;
             background-color: white;
+        }
+
+        /* Popup container - can be anything you want */
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* The actual popup */
+        .popup .popuptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        /* Toggle this class - hide and show the popup */
+        .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
     </style>
 
@@ -42,7 +109,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img class="m-t-21" src="images/logo_small.png" alt="no" width="70"></a>
+                <a class="navbar-brand" href="index.html"><img class="m-t-21" src="images/logo_small.png" alt="no"
+                        width="70"></a>
             </div>
             <div class="collapse navbar-collapse ">
                 <ul class="nav navbar-nav ">
@@ -57,36 +125,37 @@
     </nav>
 
     <div class="login-box">
-		<div class="left-box">
-			<h1 style="font-size: 15px;">LOGIN/REGISTER</h1>
-			<form  action="" method="POST" id="box-form">
-				<input type="text" name="user" id="txt-user" class="input-box" placeholder="Usuario" required>
+        <div class="left-box">
+            <h1 style="font-size: 15px;">LOGIN/REGISTER</h1>
+            <form action="" method="POST" id="box-form">
+                <input type="text" name="user" id="txt-user" class="input-box" placeholder="Usuario" required>
 
-                <input type="email" name="email" id="txt-email" class="input-box" placeholder="Correo electronico" required>
+                <input type="email" name="email" id="txt-email" class="input-box" placeholder="Correo electronico"
+                    required>
 
-                <input id="txt-ccard" class="input-box" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="Tarjeta: xxxx xxxx xxxx xxxx" required>
-
-				<input type="password" name="password" id="txt-password" class="input-box" placeholder="Password" required>
-				
-				<input type="submit" name="entrar" value="Entrar">
-
-			</form>
-		</div>		
-	</div>
-
-    <div class="login-box sessionIn">
-		<div class="left-box">
-			<h1 style="font-size: 15px;">La sesion ya ha sido iniciada</h1>
-            <a href='#' id='cerrar-sesion'>Cerrar Sesión</a>
-		</div>
-	</div>
+                <input type="password" name="password" id="txt-password" class="input-box" placeholder="Password"
+                    required>
+                <div class="popup" onclick="myFunction()">
+                    <input type="submit" name="entrar" value="Entrar">
+                    <span class="popuptext" id="myPopup">Te has regristrado correctamente inicia sesion</span>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
     <footer class="footer" style="background-color: rgb(37, 37, 37); padding: 2%; margin-top: 2%;">
         <div style="color: rgb(90, 90, 90);">© 2022 Copyright:
-          <a href="index.html">meatyorite.com</a>
+            <a href="index.html">meatyorite.com</a>
         </div>
-      </footer>
+    </footer>
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="windowClosed.js"></script>
