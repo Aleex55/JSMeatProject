@@ -13,6 +13,12 @@ $(document).ready(function(){
 
     if(txt_user != null && txt_user != 'undefined'){
         //llamamos al documento sesion.html
-        window.location = 'Producte1.html';
+        //window.location = 'sesionIniciada.html';
     }
+});
+
+//Cerrar sesion 
+$('#cerrar-sesion').click(function(){
+    localStorage.clear();
+    window.location = "Login.html";
 });
