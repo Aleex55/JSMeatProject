@@ -24,8 +24,10 @@ if (sessionStorage.getItem("arrayNomProducts") !== null) {
 function addItemsToCart(itemTitles, itemPrices, itemImages){
     console.log(itemTitles, itemPrices, itemImages);
 
+
+
     for (let i = 0; i < itemTitles.length; i++) {
-       const cartRow = document.createElement('div');
+    const cartRow = document.createElement('div');
         const rowContent = `
         <div class="table-row cart-item">
                     <div class = "table-cell">
@@ -107,17 +109,29 @@ function quantityChanged(event) {
 } 
 
 function comprarButtonClicked(){
-    if (sessionStorage.getItem("arrayNomProducts") !== null) {
-        var alertPopup = document.getElementById("snackbar");
-        alertPopup.className = "show";
-        setTimeout(function(){ alertPopup.className = alertPopup.className.replace("show", ""); }, 3000);
-        sessionStorage.removeItem('arrayNomProducts');
-        sessionStorage.removeItem('arrayPriceProducts');
-        sessionStorage.removeItem('arrayImgProducts');
-    }
+    if (localStorage.getItem("session") !== null){
+        if (sessionStorage.getItem("arrayNomProducts") !== null) {
+            var alertPopup = document.getElementById("snackbar");
+            alertPopup.className = "show";
+            setTimeout(function(){ alertPopup.className = alertPopup.className.replace("show", ""); }, 3000);
+            sessionStorage.removeItem('arrayNomProducts');
+            sessionStorage.removeItem('arrayPriceProducts');
+            sessionStorage.removeItem('arrayImgProducts');
 
-    allCartItemsContainer.innerHTML = '';
-    updatePrice();
+            allCartItemsContainer.innerHTML = '';
+            updatePrice();
+        }
+    }else{
+        const alertContainer = document.querySelector('.session-alert');
+        const alertRow = document.createElement('div');
+        const alertContent = `
+        <div class="alerta">
+            <p style="color:red; text-align:center;">Tienes que registrarte antes de poder realizar una compra</p>
+        </div>`;
+        
+        alertContainer.append(alertRow);
+        alertRow.innerHTML = alertContent;
+    }
 }
 function deleteAllButtonClicked(){
     if (sessionStorage.getItem("arrayNomProducts") !== null) {
